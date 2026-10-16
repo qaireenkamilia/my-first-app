@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First App</title>
+    <!-- This line connects your website to the app ID card -->
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; padding: 50px; }
+        .card { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Welcome to My App!</h1>
+        <p>This is a real web app running on your phone.</p>
+        <button onclick="alert('It works!')">Click Me</button>
+    </div>
+
+    <!-- This script tells the phone to activate your offline features -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log("App is ready for offline use!"))
+                .catch((err) => console.log("Setup failed", err));
+        }
+    </script>
+</body>
+</html>
+
